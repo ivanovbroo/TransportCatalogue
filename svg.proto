@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package transport_proto;
+
+message Point {
+    double x = 1;
+    double y = 2;
+}
+
+message Color {
+    uint32 type = 1;
+    string name = 2;
+}

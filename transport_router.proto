@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package transport_proto;
+
+message RouteInternalData {
+    uint32 pos = 1;
+    double weight = 2;
+    bool is_prev_edge = 3;
+    uint32 prev_edge_id = 4;
+}
+
+message RouteInternalDataVector {
+    uint32 size = 1;
+    repeated RouteInternalData route_internal_data = 2;
+}
+
+message RoutesInternalData {
+    repeated RouteInternalDataVector routes_internal_data_vector = 1;
+}
+
+message Router {
+    RoutesInternalData routes_internal_data = 1;
+}

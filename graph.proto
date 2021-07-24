@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package transport_proto;
+
+message Edge {
+    uint32 from = 1;
+    uint32 to = 2;
+    double weight = 3;
+}
+
+message IncidenceList {
+    repeated uint32 id = 1;
+}
+
+message TransportGraphData {
+    bool is_bus = 1;
+    uint32 stop_from_id = 2;
+    uint32 stop_to_id = 3;
+    uint32 bus_id = 4;
+    uint32 stop_count = 5;
+    double time = 6;
+}
+
+message VertexIdLoop {
+    uint32 id = 1;
+    uint32 transfer_id = 2;
+}
+
+message Graph {
+    repeated Edge edge = 1;
+    repeated IncidenceList incidence_list = 2;
+    map<uint32, TransportGraphData> edge_id_to_graph_data = 3;
+    map<uint32, VertexIdLoop> stop_to_vertex_id = 4;
+}
